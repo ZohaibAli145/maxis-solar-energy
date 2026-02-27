@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Maxis Solar Energy Professional Solar Solutions</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .solar-gradient {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulseSlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseSlow {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+        
+        .animate-bounce-in {
+            animation: bounceIn 0.6s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 30px #fbbf24;
+            }
+            to {
+                box-shadow: 0 0 20px #fbbf24, 0 0 30px #fbbf24, 0 0 40px #fbbf24;
+            }
+        }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(15px);
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+        }
+        
+        .navbar-logo {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Custom Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%);
+            border-radius: 6px;
+            border: 2px solid #1e293b;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        ::-webkit-scrollbar-thumb:active {
+            background: linear-gradient(180deg, #d97706 0%, #b45309 100%);
+        }
+        
+        /* Firefox Scrollbar */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #fbbf24 #1e293b;
+        }
+        
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            z-index: 9999;
+            transition: width 0.2s ease;
+        }
+        
+        /* Scroll-to-top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(251, 191, 36, 0.5);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 8px;
+            padding: 8px 0;
+            margin-top: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(251, 191, 36, 0.1);
+            color: #fbbf24;
+            padding-left: 25px;
+        }
+        
+        .dropdown-item::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background: #fbbf24;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-item:hover::before {
+            opacity: 1;
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .overlay {
+            opacity: 1;
+        }
+        
+        .overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body class="scroll-smooth">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Scroll-to-top Button -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <img src="./maxis-energy-logo-012.png" alt="Maxis Solar Energy" width="60px" height="60px" class="navbar-logo rounded-lg shadow-lg">
+                    <div>
+                        <span class="text-2xl font-bold text-white">Maxis <span class="gradient-text">Solar Energy</span></span>
+                        <div class="text-xs text-gray-400">Powering Tomorrow</div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-white hover:text-yellow-400 transition-colors font-medium">Home</a>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link text-white hover:text-yellow-400 transition-colors font-medium flex items-center">
+                            Services <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="services.html#residential" class="dropdown-item">Residential Solar</a>
+                            <a href="services.html#commercial" class="dropdown-item">Commercial Solar</a>
+                            <a href="services.html#industrial" class="dropdown-item">Industrial Solar</a>
+                            <a href="services.html#storage" class="dropdown-item">Energy Storage</a>
+                            <a href="services.html#maintenance" class="dropdown-item">Maintenance</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link text-white hover:text-yellow-400 transition-colors font-medium flex items-center active">
+                            Projects <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="projects.html" class="dropdown-item">All Projects</a>
+                            <a href="projects.html#residential" class="dropdown-item">Residential</a>
+                            <a href="projects.html#commercial" class="dropdown-item">Commercial</a>
+                            <a href="projects.html#industrial" class="dropdown-item">Industrial</a>
+                            <a href="projects.html#case-studies" class="dropdown-item">Case Studies</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link text-white hover:text-yellow-400 transition-colors font-medium">About Us</a>
+                    <a href="contact.html" class="nav-link text-white hover:text-yellow-400 transition-colors font-medium">Contact Us</a>
+                </div>
+                
+                <button class="md:hidden text-white hover:text-yellow-400 transition-colors" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-slate-900/95 backdrop-blur-lg" id="mobile-menu">
+            <div class="px-4 py-4 space-y-3">
+                <a href="index.html" class="block text-white hover:text-yellow-400 transition-colors py-2">Home</a>
+                <div class="border-t border-gray-700 pt-2">
+                    <div class="text-yellow-400 font-semibold py-2">Services</div>
+                    <a href="services.html#residential" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">Residential Solar</a>
+                    <a href="services.html#commercial" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">Commercial Solar</a>
+                    <a href="services.html#industrial" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">Industrial Solar</a>
+                    <a href="services.html#storage" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">Energy Storage</a>
+                    <a href="services.html#maintenance" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">Maintenance</a>
+                </div>
+                <div class="border-t border-gray-700 pt-2">
+                    <div class="text-yellow-400 font-semibold py-2">Projects</div>
+                    <a href="projects.html" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">All Projects</a>
+                    <a href="projects.html#residential" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">Residential</a>
+                    <a href="projects.html#commercial" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">Commercial</a>
+                    <a href="projects.html#industrial" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">Industrial</a>
+                    <a href="projects.html#case-studies" class="block text-gray-300 hover:text-yellow-400 transition-colors py-1 pl-4">Case Studies</a>
+                </div>
+                <a href="about.html" class="block text-white hover:text-yellow-400 transition-colors py-2">About Us</a>
+                <a href="contact.html" class="block text-white hover:text-yellow-400 transition-colors py-2">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center text-white page-transition">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-shadow animate-fade-in-up">
+                    Our <span class="gradient-text">Projects</span>
+                </h1>
+                <p class="text-xl md:text-2xl max-w-4xl mx-auto text-gray-200 animate-fade-in-up" style="animation-delay: 0.2s">
+                    Explore our portfolio of successful solar installations across residential and commercial sectors
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-white sticky top-16 z-40 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active px-6 py-2 rounded-full border-2 border-yellow-400 font-semibold" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 font-semibold hover:border-yellow-400" data-filter="residential">
+                    Residential
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 font-semibold hover:border-yellow-400" data-filter="commercial">
+                    Commercial
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 font-semibold hover:border-yellow-400" data-filter="industrial">
+                    Industrial
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Residential Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-bounce-in" data-category="residential">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="./WhatsApp Image 2026-02-27 at 11.20.21 AM.jpeg" alt="Modern Family Home" class="w-full h-full object-cover">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-bold mb-1">Modern Family Home</h3>
+                                <p class="text-sm">Residential • California</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500"><i class="fas fa-bolt mr-1"></i>10kW System</span>
+                            <span class="text-sm font-semibold text-green-600">Completed</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Complete residential installation with battery backup system. Reducing electricity bills by 85%.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4 text-sm text-gray-500">
+                                <span><i class="fas fa-solar-panel mr-1"></i>32 Panels</span>
+                                <span><i class="fas fa-battery-full mr-1"></i>13kWh Battery</span>
+                            </div>
+                            <button class="text-yellow-500 hover:text-yellow-600 font-semibold">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-bounce-in" data-category="commercial" style="animation-delay: 0.1s">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="./WhatsApp Image 2026-02-27 at 11.20.20 AM (2).jpeg" alt="Tech Office Complex" class="w-full h-full object-cover">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-bold mb-1">Tech Office Complex</h3>
+                                <p class="text-sm">Commercial • Texas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500"><i class="fas fa-bolt mr-1"></i>250kW System</span>
+                            <span class="text-sm font-semibold text-green-600">Completed</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Large-scale commercial installation with smart monitoring and energy management system.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4 text-sm text-gray-500">
+                                <span><i class="fas fa-solar-panel mr-1"></i>800 Panels</span>
+                                <span><i class="fas fa-chart-line mr-1"></i>Smart Monitoring</span>
+                            </div>
+                            <button class="text-yellow-500 hover:text-yellow-600 font-semibold">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industrial Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-bounce-in" data-category="industrial" style="animation-delay: 0.2s">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="./WhatsApp Image 2026-02-27 at 11.20.19 AM.jpeg" alt="Manufacturing Facility" class="w-full h-full object-cover">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-bold mb-1">Manufacturing Facility</h3>
+                                <p class="text-sm">Industrial • Arizona</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500"><i class="fas fa-bolt mr-1"></i>500kW System</span>
+                            <span class="text-sm font-semibold text-yellow-600">In Progress</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Industrial solar system with massive energy storage for 24/7 operation capability.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4 text-sm text-gray-500">
+                                <span><i class="fas fa-solar-panel mr-1"></i>1600 Panels</span>
+                                <span><i class="fas fa-battery-full mr-1"></i>1MWh Storage</span>
+                            </div>
+                            <button class="text-yellow-500 hover:text-yellow-600 font-semibold">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Residential Project 2 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-bounce-in" data-category="residential" style="animation-delay: 0.3s">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="./WhatsApp Image 2026-02-27 at 11.20.20 AM (1).jpeg" alt="Luxury Villa" class="w-full h-full object-cover">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-bold mb-1">Luxury Villa</h3>
+                                <p class="text-sm">Residential • Florida</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500"><i class="fas fa-bolt mr-1"></i>15kW System</span>
+                            <span class="text-sm font-semibold text-green-600">Completed</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Premium residential installation with solar pool heating and EV charging integration.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4 text-sm text-gray-500">
+                                <span><i class="fas fa-solar-panel mr-1"></i>48 Panels</span>
+                                <span><i class="fas fa-car mr-1"></i>EV Charger</span>
+                            </div>
+                            <button class="text-yellow-500 hover:text-yellow-600 font-semibold">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial Project 2 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-bounce-in" data-category="commercial" style="animation-delay: 0.4s">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="./WhatsApp Image 2026-02-27 at 11.20.20 AM.jpeg">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-bold mb-1">Shopping Mall</h3>
+                                <p class="text-sm">Commercial • Nevada</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500"><i class="fas fa-bolt mr-1"></i>350kW System</span>
+                            <span class="text-sm font-semibold text-green-600">Completed</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Rooftop solar installation covering entire mall parking structure with EV charging stations.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4 text-sm text-gray-500">
+                                <span><i class="fas fa-solar-panel mr-1"></i>1100 Panels</span>
+                                <span><i class="fas fa-car mr-1"></i>20 EV Chargers</span>
+                            </div>
+                            <button class="text-yellow-500 hover:text-yellow-600 font-semibold">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Residential Project 3 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-bounce-in" data-category="residential" style="animation-delay: 0.5s">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="./WhatsApp Image 2026-02-27 at 11.20.21 AM (1).jpeg" alt="Suburban Home" class="w-full h-full object-cover">
+                        <div class="overlay absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <h3 class="text-xl font-bold mb-1">Suburban Home</h3>
+                                <p class="text-sm">Residential • Colorado</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-sm text-gray-500"><i class="fas fa-bolt mr-1"></i>8kW System</span>
+                            <span class="text-sm font-semibold text-green-600">Completed</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Affordable residential solution with net metering and smart home integration.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-4 text-sm text-gray-500">
+                                <span><i class="fas fa-solar-panel mr-1"></i>26 Panels</span>
+                                <span><i class="fas fa-home mr-1"></i>Smart Home</span>
+                            </div>
+                            <button class="text-yellow-500 hover:text-yellow-600 font-semibold">
+                                View Details <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-r from-slate-900 to-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="animate-fade-in-up">
+                    <div class="text-5xl font-bold text-yellow-400 mb-2">500+</div>
+                    <div class="text-white text-lg">Projects Completed</div>
+                </div>
+                <div class="animate-fade-in-up" style="animation-delay: 0.1s">
+                    <div class="text-5xl font-bold text-yellow-400 mb-2">50MW+</div>
+                    <div class="text-white text-lg">Total Capacity</div>
+                </div>
+                <div class="animate-fade-in-up" style="animation-delay: 0.2s">
+                    <div class="text-5xl font-bold text-yellow-400 mb-2">15+</div>
+                    <div class="text-white text-lg">States Served</div>
+                </div>
+                <div class="animate-fade-in-up" style="animation-delay: 0.3s">
+                    <div class="text-5xl font-bold text-yellow-400 mb-2">99%</div>
+                    <div class="text-white text-lg">On-Time Delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6 animate-fade-in-up">
+                Start Your <span class="gradient-text">Solar Project</span>
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.2s">
+                Join hundreds of satisfied customers who have made the switch to clean, renewable energy.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.4s">
+                <a href="contact.html" class="solar-gradient text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-glow">
+                    <i class="fas fa-calculator mr-2"></i>Get Free Quote
+                </a>
+                <a href="services.html" class="border-2 border-yellow-400 text-yellow-600 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-400 hover:text-white transition-all duration-300">
+                    <i class="fas fa-info-circle mr-2"></i>Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-solar-panel text-2xl text-yellow-400"></i>
+                        <span class="text-xl font-bold">Voltaic<span class="text-yellow-400">Energy</span></span>
+                    </div>
+                    <p class="text-gray-400">
+                        Leading the way in renewable energy solutions since 2009. Your trusted partner for sustainable power.
+                    </p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-yellow-400 transition-colors">Services</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-yellow-400 transition-colors">About Us</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-yellow-400 transition-colors">Projects</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-yellow-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">Residential Solar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">Commercial Solar</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">Energy Storage</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">Maintenance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on solar energy trends and special offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-lg text-gray-900 focus:outline-none">
+                        <button type="submit" class="solar-gradient px-4 py-2 rounded-r-lg hover:shadow-lg transition-all">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 Voltaic Energy. All rights reserved. | 
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Privacy Policy</a> | 
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking links
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Scroll Progress Indicator
+        const scrollProgress = document.getElementById('scrollProgress');
+        const scrollToTop = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            // Update scroll progress
+            scrollProgress.style.width = scrollPercentage + '%';
+            
+            // Navbar scroll effect
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+            
+            // Show/hide scroll-to-top button
+            if (window.scrollY > 300) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
+        });
+        
+        // Scroll to top functionality
+        scrollToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                        card.style.animation = 'fadeInUp 0.6s ease-out';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Enhanced scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add different animations based on element type
+                    if (entry.target.classList.contains('project-card')) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    } else if (entry.target.classList.contains('filter-btn')) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    } else if (entry.target.classList.contains('hero-gradient')) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    } else {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        // Observe different elements with initial states
+        // Project cards
+        document.querySelectorAll('.project-card').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px) scale(0.95)';
+            el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(el);
+        });
+        
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+            observer.observe(el);
+        });
+        
+        // Hero section
+        document.querySelectorAll('.hero-gradient').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+        
+        // Section titles
+        document.querySelectorAll('h2').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Footer
+        document.querySelectorAll('footer').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+        
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero-gradient');
+            if (heroSection) {
+                heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+        
+        // Floating animation for cards on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.project-card').forEach((el, index) => {
+                const rect = el.getBoundingClientRect();
+                const speed = 0.5 + (index * 0.1);
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.style.transform = `translateY(${scrolled * speed * 0.1}px) scale(1)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
